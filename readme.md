@@ -5,6 +5,6 @@
 #version: 1.0
 #####
 #clear screen
-  clear 
+#clear 
 #output 
-echo "this is daily backup"
+#echo "this is daily backup"
