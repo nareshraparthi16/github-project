@@ -1,0 +1,40 @@
+#Name of your Lets-Chat service. 
+#The first container that is started for this service is named:
+#composetutorial_lets-chat_1
+lets-chat: 
+  #Container image that is used to run the lets-chat service. 
+  #Use the full path to your private Bluemix images registry.
+  image: registry.ng.bluemix.net/$your_namespace/lets-chat  
+  #Enter a public IP address and port 8080. Run cf ic ip list
+  #to list available public IP addresses in your space. 
+  #Option 1: If you do not have a public IP address 
+  #that you can use, you can request a new one as follows: 
+  #ports:
+  #- "request:8080:8080". 
+  #Option 2: If you want to bind a public IP address after your Lets-Chat container
+  #is created by using the cf ic ip bind command, enter the following:
+  #ports:
+  #- "8080"
+  #Option 3: Bind a public IP address directly to your Lets-Chat container
+  #ports: 
+  #- "YOUR_PUBLIC_IP_ADDRESS:8080:8080"
+  #Choose one of the port options described. 
+  ports:
+   - "SELECT_YOUR_PORT_OPTION"
+  #lets-chat service is linked to the mongo service. 
+  links: 
+    - mongo
+#Name of your Mongo database service. 
+#The first container that is started for this service is named:
+#composetutorial_mongo_1
+mongo:
+  #Container image that is used to run the mongo service. 
+  #Use the full path to your private Bluemix images registry.
+  image: registry.ng.bluemix.net/$your_namespace/mongo
+  #Container port 27017 is published within your private container network. 
+  #If a container instance wants to send messages to a mongo container, 
+  #requests need to be sent to this port. 
+  expose:
+    - "27017"
+
+
