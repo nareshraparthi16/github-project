@@ -20,5 +20,5 @@
 cp -R /home/gituser/github-project/ /home/gituser/daily-backup/
 #get today's date
 
- TDATE=`date +%d-%b-%y`
+ TDATE=`date +%d-b%-y`
  #echo "todays date is : `date +%d-%b-%y`"
